@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Post</title>
-</head>
-<body>
-    
-<h1>Cadastrar novo post.</h1>
+@extends('admin.layouts.app')
 
-<form action="{{ route('posts.store') }}" method="POST">
+@section('title', 'Criar Novo Post')
 
-    <input type="text" name="title" id="title" placeholder="Título">
-    <textarea name="content" id="content" cols="30" rows="4" placeholder="Conteúdo"></textarea>
-    <button type="submit">Enviar</button>
+@section('content')
+    <h1 class="text-center text-3xl uppercase font-black my-4">Novo Post</h1>
 
-</form>
-
-</body>
-</html>
-
+    <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-5/12 mx-auto">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+            @include('admin.posts._partials.form')
+        </form>
+    </div>
+@endsection
